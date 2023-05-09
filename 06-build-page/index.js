@@ -11,7 +11,7 @@ const ASSETS_DIST_DIR = './06-build-page/project-dist/assets';
 
 async function buildPage() {
   try {
-    await fs.mkdir('./06-build-page/project-dist');
+    await fs.mkdir('./06-build-page/project-dist', {recursive: true});
 
     const template = await fs.readFile(TEMPLATE_FILE, 'utf-8');
 
