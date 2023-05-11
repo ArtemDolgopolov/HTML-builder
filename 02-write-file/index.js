@@ -22,7 +22,14 @@ rl.on('line', (input) => {
   console.log('You have typed this: ' + input);
 });
 
+rl.on('SIGINT', () => {
+  writeStream.end();
+  console.log('\nProcess is stopped');
+  process.exit(0);
+});
+
 process.on('SIGINT', () => {
   writeStream.end();
   console.log('\nProcess is stopped');
+  process.exit(0);
 });
